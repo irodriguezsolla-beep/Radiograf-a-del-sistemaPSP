@@ -1,6 +1,8 @@
 import java.io.File;
 import java.lang.Runtime;
 import java.util.Properties;
+import java.util.TreeSet;
+
 public class Metodos {
 
     public static void procesador(){
@@ -66,4 +68,28 @@ public class Metodos {
         System.out.println("\t\t"+ rutaFichero);
         System.out.println(" ");
     }
+    public static void propiedadesSistema(String[] args) {
+        String[] prefijos = args;
+        if (args == null || args.length == 0) {
+            prefijos = new String[]{"os.", "user.", "java.version"};
+        }
+
+        System.out.println("PROPIEDADES DEL SISTEMA");
+        System.out.println("=".repeat(50));
+
+        Properties props = System.getProperties();
+
+        TreeSet<String> clavesOrdenadas = new TreeSet<>(props.stringPropertyNames());
+
+        for (String clave : clavesOrdenadas) {
+            for (String prefijo : prefijos) {
+                if (clave.startsWith(prefijo)) {
+                    System.out.println("\t" + clave + " = " + props.getProperty(clave));
+                    break; // Pasa a la siguiente clave para no duplicar si coincide
+                }
+            }
+        }
+        System.out.println(" ");
+    }
 }
+
