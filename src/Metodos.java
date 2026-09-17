@@ -1,7 +1,9 @@
 import java.io.File;
 import java.lang.Runtime;
 import java.util.Properties;
+import java.util.Scanner;
 import java.util.TreeSet;
+
 
 public class Metodos {
 
@@ -54,6 +56,7 @@ public class Metodos {
         System.out.println("\tMáxima (-Xmx):         " + max + " MiB");
         System.out.println(" ");
     }
+
     public static void sistema(){
         String osName = System.getProperty("os.name");
         String fileSeparator = File.separator;
@@ -68,6 +71,7 @@ public class Metodos {
         System.out.println("\t\t"+ rutaFichero);
         System.out.println(" ");
     }
+
     public static void propiedadesSistema(String[] args) {
         String[] prefijos = args;
         if (args == null || args.length == 0) {
@@ -85,11 +89,17 @@ public class Metodos {
             for (String prefijo : prefijos) {
                 if (clave.startsWith(prefijo)) {
                     System.out.println("\t" + clave + " = " + props.getProperty(clave));
-                    break; // Pasa a la siguiente clave para no duplicar si coincide
+                    break;
                 }
             }
         }
         System.out.println(" ");
+    }
+
+    public static void pausar() {
+        System.out.print("Pulsa INTRO para terminar...");
+        Scanner sc = new Scanner(System.in);
+        sc.nextLine();
     }
 }
 

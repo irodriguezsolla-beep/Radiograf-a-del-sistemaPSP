@@ -4,4 +4,5 @@ void main() {
     Metodos.memoria();
     Metodos.sistema();
     Metodos.propiedadesSistema(new String[]{});
+    Metodos.pausar();
 }
