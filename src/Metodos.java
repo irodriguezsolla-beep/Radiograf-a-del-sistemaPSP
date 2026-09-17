@@ -52,5 +52,18 @@ public class Metodos {
         System.out.println("\tMáxima (-Xmx):         " + max + " MiB");
         System.out.println(" ");
     }
+    public static void sistema(){
+        String osName = System.getProperty("os.name");
+        String fileSeparator = File.separator;
+        String userHome = System.getProperty("user.home");
+        String rutaFichero = userHome + fileSeparator + "psp" + fileSeparator + "informe.txt";
 
+        System.out.println("SISTEMA");
+        System.out.println("=".repeat(50));
+        System.out.println("\tSistema Operativo:     " + osName);
+        System.out.println("\tSeparador de archivos: " + fileSeparator);
+        System.out.println("\tRuta construida con las propiedades:");
+        System.out.println("\t\t"+ rutaFichero);
+        System.out.println(" ");
+    }
 }
