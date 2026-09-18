@@ -45,3 +45,39 @@ En Linux / macOS, la ruta generada sería: /home/xupit/psp/informe.txt
 
 - Separadores de carpetas: Windows utiliza la barra invertida (\), mientras que Linux y macOS usan la barra diagonal (/).
 - Ruta de usuario: Windows empieza en la unidad de disco (C:\Users\...) y Linux en la raíz de usuarios (/home/...).
+
+# Parte3
+
+### Para cada uno de estos casos indicad cuál de las tres encaja, por qué, y un inconveniente concreto que se asume al elegirla. Un caso puede encajar en más de una: si es así, explicad en qué nivel actúa cada una.
+
+a) Servidor web con 500 peticiones y 8 núcleos
+
+- Encaja en: Paralela y concurrente.
+
+- Por qué: A nivel paralelo, los 8 núcleos procesan 8 peticiones al mismo tiempo. A nivel concurrente, la máquina va alternando entre las 500 peticiones para que todas progresen.
+
+- Inconveniente: Condiciones de carrera. Varios procesos compitiendo por la misma memoria compartida pueden corromper datos si no se sincronizan bien.
+
+b) Renderizar una película en 3 meses
+
+- Encaja en: Distribuida.
+
+- Por qué: Es un volumen masivo de trabajo que requiere dividir la carga y los fotogramas entre cientos de ordenadores conectados en red (render farm).
+
+- Inconveniente: Sobrecarga de red. Enviar archivos pesados y coordinar la entrega de cada máquina genera cuellos de botella en la red.
+
+c) App de móvil descargando un archivo mientras navegas
+
+- Encaja en: Concurrente.
+
+- Por qué: Su objetivo es la fluidez; la descarga va en segundo plano para que la interfaz no se congele ni deje de responder a tus toques.
+
+- Inconveniente: Gestión de hilos. Sincronizar la interfaz si la descarga falla o tarda más de la cuenta complica el código.
+
+d) Un cálculo que no cabe en la RAM de un solo equipo
+
+- Encaja en: Distribuida.
+
+- Por qué: Al superar la memoria física de un equipo, la única opción es sumar y repartir los datos entre la RAM de varias máquinas distintas.
+
+- Inconveniente: Comunicación lenta. Intercambiar datos entre nodos mediante la red es muchísimo más lento que leer la memoria RAM local.
